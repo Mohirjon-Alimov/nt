@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noEmitOnError": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "module": "CommonJS",
+    "target": "ESNext",
+    "declaration": false,
+    "newLine": "lf",
+    "allowSyntheticDefaultImports": true,
+    "checkJs": false
+  }
+}
