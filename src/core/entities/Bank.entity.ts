@@ -56,7 +56,7 @@ export class BankEntity implements BaseEntityInterface<BankEntity, BankSchema> {
 
   convertToEntity(bank: BankSchema): BankEntity {
     return bank
-      ? this.buildId(bank.id)
+      ? this.buildId(bank._id)
         .buildName(bank.name)
         .buildMoney(bank.money)
         .buildCreatedAt(bank.createdAt)
@@ -67,7 +67,7 @@ export class BankEntity implements BaseEntityInterface<BankEntity, BankSchema> {
   convertToSchema(): BankSchema {
     return this
       ? {
-        id: this.getId(),
+        _id: this.getId(),
         name: this.getName(),
         money: this.getMoney(),
         createdAt: this.getCreatedAt(),

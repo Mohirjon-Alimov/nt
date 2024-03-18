@@ -2,7 +2,7 @@ import { Types } from 'mongoose';
 import { prop } from '@typegoose/typegoose';
 
 export class BankSchema {
-  id: Types.ObjectId;
+  _id: Types.ObjectId;
 
   @prop()
   name: string;

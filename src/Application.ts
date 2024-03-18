@@ -11,14 +11,12 @@ export default class Application {
   public protocol: string;
   public host: string;
   public port: number;
-  public secret: string;
 
   constructor(options) {
     this.mongoUrl = options.mongoUrl;
     this.protocol = options.protocol;
     this.host = options.host;
     this.port = options.port;
-    this.secret = options.secret;
   }
 
   start() {
