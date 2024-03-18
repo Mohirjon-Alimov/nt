@@ -1,1 +1,2 @@
-export * from './Response.service'
+export * from './Response.service';
+export * from './Mongo';

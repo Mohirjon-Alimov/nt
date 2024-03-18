@@ -1,9 +1,9 @@
-import { BankSchema } from '../schemas';
-import { BankEntity, BaseEntityInterface } from '../entities';
-import { BankModel } from '../models';
-import { PaginationInterface } from '../interfaces';
+import { BankSchema } from '../../database';
+import { BankEntity, BaseEntityInterface } from '../../database';
+import { BankModel } from '../../database';
+import { PaginationInterface } from '../../interfaces';
 import { FilterQuery, Types } from 'mongoose';
-import { RequirementError } from '../Errors';
+import { RequirementError } from '../../Errors';
 
 
 export class BankRepository {
@@ -25,7 +25,7 @@ export class BankRepository {
   }
 
   static async create(_bank: BankEntity): Promise<BankEntity> {
-    const requiredFields: string[] = ['_name'];
+    const requiredFields: string[] = ['_name', '_money'];
     this.checkRequiredFields(requiredFields, _bank);
 
     const bankToCreate: BankSchema = _bank.convertToSchema();
@@ -34,15 +34,15 @@ export class BankRepository {
   }
 
   static async list(pagination?: PaginationInterface, filter?: FilterQuery<any>, sort?: any): Promise<Array<BankEntity>> {
-    const questions = await BankModel.find(filter)
+    const banks = await BankModel.find(filter)
       .limit(pagination.size)
       .skip((pagination.page - 1) * pagination.size)
       .sort(sort);
-    return this.multipleConverter<BankEntity, BankSchema>(questions, BankEntity);
+    return this.multipleConverter<BankEntity, BankSchema>(banks, BankEntity);
   }
 
   static async getById(id: Types.ObjectId): Promise<BankEntity> {
-    const bank = await BankModel.findOne({ id: id });
+    const bank = await BankModel.findOne({ _id: id });
     return new BankEntity().convertToEntity(bank);
   }
 

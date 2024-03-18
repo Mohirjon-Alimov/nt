@@ -14,5 +14,4 @@ export class BankSchema {
 
   updatedAt: Date;
 
-
 }

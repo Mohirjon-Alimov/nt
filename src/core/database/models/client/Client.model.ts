@@ -1,10 +1,10 @@
 import { getModelForClass } from '@typegoose/typegoose';
-import { UserSchema } from '../schemas';
+import { ClientSchema } from '../../schemas';
 
 
-export const UserModel = getModelForClass(UserSchema, {
+export const ClientModel = getModelForClass(ClientSchema, {
   schemaOptions: {
-    collection: 'users',
+    collection: 'clients',
     timestamps: true,
     minimize: true,
     versionKey: false,

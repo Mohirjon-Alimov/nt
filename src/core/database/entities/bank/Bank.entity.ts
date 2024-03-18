@@ -1,6 +1,6 @@
 import { Types } from 'mongoose';
-import { BankSchema } from '../schemas';
-import { BaseEntityInterface } from './BaseEntity.interface';
+import { BankSchema } from '../../schemas';
+import { BaseEntityInterface } from '../BaseEntity.interface';
 
 export class BankEntity implements BaseEntityInterface<BankEntity, BankSchema> {
   protected _id?: Types.ObjectId;

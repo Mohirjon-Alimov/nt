@@ -1,11 +1,9 @@
-import { createServer, Server as HttpServer } from 'http';
-import { Mongo } from './core';
 import express from 'express';
 import routes from './Routes';
+import { Mongo } from './services';
 
 export default class Application {
   public server: express.Application;
-  public http: HttpServer;
   public mongo: Mongo;
   public mongoUrl: string;
   public protocol: string;
@@ -28,8 +26,7 @@ export default class Application {
     this.server = express();
     this.server.use(express.json());
     this.server.use(routes);
-    this.http = createServer(this.server);
-    this.http.listen(this.port).on('listening', () => {
+    this.server.listen(this.port).on('listening', () => {
       console.log(`Server listening on ${this.protocol}://${this.host}:${this.port}`);
     });
   }

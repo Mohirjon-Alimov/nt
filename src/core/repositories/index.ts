@@ -1,1 +1,2 @@
-export * from './Bank.repository'
+export * from './bank'
+export * from './client'

@@ -1,16 +1,13 @@
 import { Types } from 'mongoose';
 import { prop } from '@typegoose/typegoose';
-import { UserStatusEnum } from '../enums';
+import { ClientStatusEnum, ClientTypeEnum } from '../../../enums';
 
 
-export class UserSchema {
+export class ClientSchema {
   _id: Types.ObjectId;
 
   @prop()
-  firstName?: string;
-
-  @prop()
-  lastName?: string;
+  fullName?: string;
 
   @prop()
   email?: string;
@@ -21,11 +18,17 @@ export class UserSchema {
   @prop()
   phoneNumber: number;
 
-  @prop({ enum: UserStatusEnum, default: UserStatusEnum.CREATED })
-  status: UserStatusEnum;
+  @prop({ enum: ClientStatusEnum, default: ClientStatusEnum.CREATED })
+  status: ClientStatusEnum;
 
   @prop({ _id: false })
   cards?: Array<UserCardSchema>;
+
+  @prop()
+  corporation_number?: number;
+
+  @prop({ enum: ClientTypeEnum, default: ClientTypeEnum.USER })
+  type: ClientTypeEnum;
 
   createdAt: Date;
 

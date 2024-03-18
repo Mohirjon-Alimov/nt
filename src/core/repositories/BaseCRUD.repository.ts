@@ -1,5 +1,5 @@
 import { FilterQuery, Types } from 'mongoose';
-import { BaseEntityInterface } from '../entities';
+import { BaseEntityInterface } from '../database/entities';
 import { PaginationInterface } from '../interfaces';
 import { RequirementError } from '../Errors';
 
