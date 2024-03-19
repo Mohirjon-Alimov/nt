@@ -1,5 +1,5 @@
 import { Types } from 'mongoose';
-import { prop } from '@typegoose/typegoose';
+import { prop, Severity } from '@typegoose/typegoose';
 import { ClientStatusEnum, ClientTypeEnum } from '../../../enums';
 
 
@@ -16,12 +16,12 @@ export class ClientSchema {
   passwordHash: string;
 
   @prop()
-  phoneNumber: number;
+  phoneNumber: string;
 
   @prop({ enum: ClientStatusEnum, default: ClientStatusEnum.CREATED })
   status: ClientStatusEnum;
 
-  @prop({ _id: false })
+  @prop({ _id: false, allowMixed: Severity.ALLOW })
   cards?: Array<UserCardSchema>;
 
   @prop()
@@ -42,7 +42,7 @@ export class UserCardSchema {
   cardId: Types.ObjectId;
 
   @prop()
-  cardNumber: number;
+  cardNumber: string;
 
   @prop()
   expireDate: string;

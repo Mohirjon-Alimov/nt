@@ -1,2 +1,3 @@
-export * from './banks'
-export * from './some.controller'
+export * from './banks';
+export * from './client';
+export * from './card';

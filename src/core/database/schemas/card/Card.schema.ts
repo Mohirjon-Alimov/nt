@@ -7,10 +7,16 @@ export class CardSchema {
   _id: Types.ObjectId;
 
   @prop()
-  cardNumber: number;
+  bankId: Types.ObjectId;
+
+  @prop()
+  cardNumber: string;
 
   @prop()
   expireDate: string;
+
+  @prop({ default: 0})
+  money:number
 
   @prop({ enum: CardStatusEnum, default: CardStatusEnum.ACTIVE })
   status: CardStatusEnum;

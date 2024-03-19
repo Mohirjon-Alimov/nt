@@ -40,8 +40,8 @@ export class BankEntity implements BaseEntityInterface<BankEntity, BankSchema> {
   }
 
   buildMoney(_money: number): BankEntity {
-    this._money = _money
-    return this
+    this._money = _money;
+    return this;
   }
 
   buildCreatedAt(_createdAt: Date): BankEntity {

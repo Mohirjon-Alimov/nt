@@ -1,1 +1,2 @@
-// export * from './GenerateEntity'
+export * from './Password';
+export * from './Redis';

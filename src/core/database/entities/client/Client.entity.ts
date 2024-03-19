@@ -9,7 +9,7 @@ export class ClientEntity implements BaseEntityInterface<ClientEntity, ClientSch
   protected _fullName: string;
   protected _email: string;
   protected _passwordHash: string;
-  protected _phoneNumber: number;
+  protected _phoneNumber: string;
   protected _status: ClientStatusEnum;
   protected _type: ClientTypeEnum;
   protected _cards: Array<UserCardEntity>;
@@ -33,7 +33,7 @@ export class ClientEntity implements BaseEntityInterface<ClientEntity, ClientSch
     return this._passwordHash;
   }
 
-  getPhoneNumber(): number {
+  getPhoneNumber(): string {
     return this._phoneNumber;
   }
 
@@ -81,7 +81,7 @@ export class ClientEntity implements BaseEntityInterface<ClientEntity, ClientSch
     return this;
   }
 
-  buildPhoneNumber(phoneNumber: number): ClientEntity {
+  buildPhoneNumber(phoneNumber: string): ClientEntity {
     this._phoneNumber = phoneNumber;
     return this;
   }

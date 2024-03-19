@@ -2,16 +2,21 @@ import { Types } from 'mongoose';
 import { BaseEntityInterface } from '../BaseEntity.interface';
 import { UserCardSchema } from '../../schemas';
 
-export class UserCardEntity implements BaseEntityInterface<UserCardEntity, UserCardSchema>{
+export class UserCardEntity implements BaseEntityInterface<UserCardEntity, UserCardSchema> {
   protected _cardId: Types.ObjectId;
-  protected _cardNumber: number;
+  protected _bankId?: Types.ObjectId;
+  protected _cardNumber: string;
   protected _expireDate: string;
 
   getCardId(): Types.ObjectId {
     return this._cardId;
   }
 
-  getCardNumber(): number {
+  getBankId(): Types.ObjectId {
+    return this._bankId;
+  }
+
+  getCardNumber(): string {
     return this._cardNumber;
   }
 
@@ -24,7 +29,12 @@ export class UserCardEntity implements BaseEntityInterface<UserCardEntity, UserC
     return this;
   }
 
-  buildCardNumber(cardNumber: number): UserCardEntity {
+  buildBankId(_id: Types.ObjectId): UserCardEntity {
+    this._bankId = _id;
+    return this;
+  }
+
+  buildCardNumber(cardNumber: string): UserCardEntity {
     this._cardNumber = cardNumber;
     return this;
   }

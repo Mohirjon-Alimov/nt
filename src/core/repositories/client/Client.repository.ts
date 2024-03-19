@@ -48,4 +48,9 @@ export class ClientRepository {
   static async countDocumentsByFilter(filter: FilterQuery<any>): Promise<number> {
     return ClientModel.countDocuments(filter);
   }
+
+  static async getByPhoneNumber(phoneNumber: number): Promise<ClientEntity> {
+    const client = await ClientModel.findOne({phoneNumber})
+    return new ClientEntity().convertToEntity(client)
+  }
 }
